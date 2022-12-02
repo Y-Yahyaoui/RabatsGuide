@@ -7,23 +7,23 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
+  <!-- --------------------------------------------- Favicons --------------------------------------------- -->
   <link href="img/leaf.png" rel="icon">
   <link href="img/bigleaf.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- --------------------------------------------- Google Fonts --------------------------------------------- -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-  <!-- Bootstrap CSS File -->
+  <!-- --------------------------------------------- Bootstrap CSS File --------------------------------------------- -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Libraries CSS Files -->
+  <!-- --------------------------------------------- Libraries CSS Files --------------------------------------------- -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-  <!-- Main Stylesheet File -->
+  <!-- --------------------------------------------- Main Stylesheet File --------------------------------------------- -->
   <link href="css/style.css" rel="stylesheet">
 
   <!-- --------------------------------------------- leaflet --------------------------------------------- -->
@@ -38,7 +38,7 @@
   <script src="fullscreen/Control.FullScreen.js"></script>
   <link href="fullscreen/Control.FullScreen.css" rel="stylesheet">
 
-  <!-- ---------------------------------------------Data--------------------------------------------- -->
+  <!-- --------------------------------------------- Data --------------------------------------------- -->
   <script src="data/cafes.geojson" type="text/javascript"></script>
   <script src="data/fastfood.geojson" type="text/javascript"></script>
   <script src="data/restaurants.geojson" type="text/javascript"></script>
@@ -48,7 +48,7 @@
   <script src="data/rivieres.geojson" type="text/javascript"></script>
   <script src="data/theatres.geojson" type="text/javascript"></script>
 
-  <!-- ---------------------------------------------leaflet-routing-machine--------------------------------------------- -->
+  <!-- --------------------------------------------- leaflet-routing-machine --------------------------------------------- -->
   <script src="app/dist/leaflet-routing-machine.js"></script>
   <script src="app/dist/Control.Geocoder.js"></script>
   <script src="app/dist/config.js"></script>
@@ -71,15 +71,15 @@
     <div class="box-collapse-wrap form">
       <form class="form-a">
         <div class="row">
-          <div class="col-md-12 mb-2">
+          <!-- <div class="col-md-12 mb-2">
             <div class="form-group">
               <label for="Type">Keyword</label>
               <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
             </div>
-          </div>
+          </div> -->
           <div class="col-md-6 mb-2">
             <div class="form-group">
-              <label for="Type">Type</label>
+              <label for="Type">Type </label>
               <select class="form-control form-control-lg form-control-a" id="Type">
                 <option>All type</option>
                 <option>Cozy</option>
@@ -88,7 +88,7 @@
               </select>
             </div>
           </div>
-          <div class="col-md-6 mb-2">
+          <!-- <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="city">City</label>
               <select class="form-control form-control-lg form-control-a" id="city">
@@ -145,7 +145,7 @@
                 <option>$200,000</option>
               </select>
             </div>
-          </div>
+          </div> -->
           <div class="col-md-12">
             <button type="button" onclick=filt() class="btn btn-b">Search Property</button>
           </div>
@@ -164,15 +164,16 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="item1.html">Env<span class="color-b">Data</span></a>
+      <a class="navbar-brand text-brand" href="index.html">Env<span class="color-b">Data</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
         data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
+          <!-- --------------------------------------------- homepage --------------------------------------------- -->
           <li class="nav-item">
-            <a class="nav-link" href="item1.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <!-- -------------------------------------------------- food -------------------------------------------------- -->
           <li class="nav-item dropdown">
@@ -279,8 +280,9 @@
               </a>
             </div>
           </li>
+          <!-- --------------------------------------------- about --------------------------------------------- -->
           <li class="nav-item">
-            <a class="nav-link" href="../contact.html">Contact</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
         </ul>
       </div>
@@ -301,21 +303,17 @@
         </div>
       </div>
     </div>
-        
-        
-      </div>
-    </div>
   </section>
-  <!--/ --------------------------------------------------- Property Single End --------------------------------------------------- /-->
 
-  <!--/ --------------------------------------------------- Property Star --------------------------------------------------- /-->
+
+  <!--/ --------------------------------------------------- Carousel of maps --------------------------------------------------- /-->
   <section class="section-property section-t8">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="title-wrap d-flex justify-content-between">
             <div class="title-box">
-              <h2 class="title-a">Latest Properties</h2>
+              <h2 class="title-a">Latest Properties </h2>
             </div>
             <div class="title-link">
               <a href="property-grid.html">All Property
@@ -507,8 +505,9 @@
       </div>
     </div>
   </section>
-  <!--/ --------------------------------------------------- Property End --------------------------------------------------- /-->
-  <!--/ --------------------------------------------------- footer Star --------------------------------------------------- /-->
+  <!--/ --------------------------------------------------- Carousel End --------------------------------------------------- /-->
+
+  <!--/ --------------------------------------------------- footer Start --------------------------------------------------- /-->
 
   <footer>
     <div class="container">
@@ -555,12 +554,12 @@
       </div>
     </div>
   </footer>
-  <!--/ Footer End /-->
+  <!--/ --------------------------------------------------- Footer End --------------------------------------------------- /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
 
-  <!-- JavaScript Libraries -->
+  <!-- --------------------------------------------------- JavaScript Libraries --------------------------------------------------- -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/popper/popper.min.js"></script>
@@ -568,10 +567,11 @@
   <script src="lib/easing/easing.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/scrollreveal/scrollreveal.min.js"></script>
-  <!-- Contact Form JavaScript File -->
+
+  <!-- --------------------------------------------------- Contact Form JavaScript File --------------------------------------------------- -->
   <script src="contactform/contactform.js"></script>
 
-  <!-- Template Main Javascript File -->
+  <!-- --------------------------------------------------- Template Main Javascript File --------------------------------------------------- -->
   <script src="js/main.js"></script>
 
 </body>

@@ -72,6 +72,8 @@ var IconForet = L.icon({
     popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
 });
 
+// ---------------------------------------------------------- map ----------------------------------------------------------
+
 var map = L.map('map', ).setView([33.977711, -6.865126], 16); 
 
 new L.basemapsSwitcher([
@@ -92,17 +94,11 @@ new L.basemapsSwitcher([
       icon: 'SwitchBasemap/example/assets/images/sat.PNG',
       name: 'Satellite'
     },
-    {
-      layer: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-      }),
-      icon: 'SwitchBasemap/example/assets/images/img3.PNG',
-      name: 'Map three'
-    },
+    
   ], { position: 'topright' }).addTo(map);
 
-// style="width: 1500px; height: 800px;"
-  
+// ---------------------------------------------------------- leaflet routing machine ----------------------------------------------------------
+
 var control = L.Routing.control(L.extend(window.lrmConfig, {
 	waypoints: [
 		L.latLng(33.9895242, -6.8484591),
@@ -157,6 +153,8 @@ var control = L.Routing.control(L.extend(window.lrmConfig, {
 	routeWhileDragging: true,
 })).addTo(map);
 
+// ---------------------------------------------------------- get current location ----------------------------------------------------------
+
 map.locate().on("locationfound", function (e) {
 	var pos = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
             var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
@@ -173,10 +171,14 @@ map.locate().on("locationfound", function (e) {
 
 var k = 1 ;
 
+// adding points to route from popups
+
 function addtoroute(feature) {
     control.spliceWaypoints(k, 1, [Number(feature.split(',')[1]), Number(feature.split(',')[0])]);
 	k+=1 ;
   };
+
+// creating a route based on forms results
 
 function filt() {
     var value = document.getElementById('Type').value
@@ -298,7 +300,7 @@ var riveradd = L.geoJson(rivieres, {
     }
   });
 
-  
+// ---------------------------------------------------------- fullscreen ----------------------------------------------------------
 
 L.Routing.errorControl(control).addTo(map);
 
