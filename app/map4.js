@@ -43,7 +43,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var url_to_geotiff_file = "img/rabat/Rabat42_modified.tif";
+var url_to_geotiff_file = "https://y-yahyaoui.github.io/RabatsGuide/img/rabat/Rabat42_modified.tif";
 
 fetch(url_to_geotiff_file)
   .then(response => response.arrayBuffer())
@@ -51,26 +51,24 @@ fetch(url_to_geotiff_file)
     parseGeoraster(arrayBuffer).then(georaster => {
       console.log("georaster:", georaster);
 
-      /*
-          GeoRasterLayer is an extension of GridLayer,
-          which means can use GridLayer options like opacity.
-
-          Just make sure to include the georaster option!
-
-          Optionally set the pixelValuesToColorFn function option to customize
-          how values for a pixel are translated to a color.
-
-          http://leafletjs.com/reference-1.2.0.html#gridlayer
-      */
-      var layer = new GeoRasterLayer({
+      var layer1 = new GeoRasterLayer({
           georaster: georaster,
           opacity: 0.7,
           // pixelValuesToColorFn: values => values[0] === 42 ? '#ffffff' : '#000000',
           // resolution: 64 // optional parameter for adjusting display resolution
+          resolution: 256
       });
-      layer.addTo(map);
-
-      map.fitBounds(layer.getBounds());
+      layer1.addTo(map);
+      map.fitBounds(layer1.getBounds());
 
   });
 });
+
+
+// function validate1() {
+//   if ($("#1942").is(":checked")) {
+//     layer1.addTo(map);
+//       ;}
+//   else {
+//     layer1.remove();
+//       }}
