@@ -74,7 +74,7 @@ var IconForet = L.icon({
 
 // ---------------------------------------------------------- map ----------------------------------------------------------
 
-var map = L.map('map', ).setView([33.977711, -6.865126], 16); 
+var map = L.map('map', ).setView([33.977711, -6.865126], 14); 
 
 new L.basemapsSwitcher([
     {
@@ -93,7 +93,7 @@ new L.basemapsSwitcher([
       layer: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
       icon: 'SwitchBasemap/example/assets/images/sat.PNG',
       name: 'Satellite'
-    },
+    }, 
     
   ], { position: 'topright' }).addTo(map);
 
@@ -317,12 +317,6 @@ L.Routing.errorControl(control).addTo(map);
 			if(window.console) window.console.log('exitFullscreen');
 		});
 
-    L.geoJSON(roads, {
-      style: function(feature) {
-          return {color: feature.properties.color}
-      }
-    
-  }).addTo(map);
 
 // ---------------------------------------------------------- Checkbox ----------------------------------------------------------
 
