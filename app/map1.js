@@ -77,6 +77,7 @@ function style3(feature) {
 
 var att1 = L.geoJson(att, {style: style1,
     onEachFeature: function (feature, layer) {layer.bindPopup(
+        "</b><br> <center> <img src='app/images/carte1/"+ feature.properties.nomcommune + ".png" + "' style='width:200px;height:300x;'></center>" +
         "<b>Name : </b> " + feature.properties.nomcommune );
         layer.on('mouseover', function() { layer.openPopup(); });
         layer.on('mouseout', function() { layer.closePopup(); });   

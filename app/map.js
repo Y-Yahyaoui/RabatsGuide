@@ -93,9 +93,7 @@ new L.basemapsSwitcher([
       layer: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
       icon: 'SwitchBasemap/example/assets/images/sat.PNG',
       name: 'Satellite'
-    }, 
-    
-  ], { position: 'topright' }).addTo(map);
+    }], { position: 'topright' }).addTo(map);
 
 // ---------------------------------------------------------- leaflet routing machine ----------------------------------------------------------
 
@@ -153,20 +151,11 @@ var control = L.Routing.control(L.extend(window.lrmConfig, {
 	routeWhileDragging: true,
 })).addTo(map);
 
-// ---------------------------------------------------------- get current location ----------------------------------------------------------
+//  get current location 
 
-map.locate().on("locationfound", function (e) {
-	var pos = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-            var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
-                weight: 1,
-                color: 'blue',
-                fillColor: '#cacaca',
-                fillOpacity: 0.2
-            });
-			control.spliceWaypoints(0, 1, e.latlng);
-            // map.addLayer(pos);
-            // map.addLayer(circle);
-			map.setView(e.latlng);
+map.locate().on("locationfound", function (e) {          
+	control.spliceWaypoints(0, 1, e.latlng);
+	map.setView(e.latlng);
   });
 
 var k = 1 ;
@@ -207,7 +196,7 @@ var restoadd = L.geoJson(restaurants, {
         "<b>Restaurant : </b> " + feature.properties.name + 
         "</br>" +"<b>About : </b> "+ feature.properties.about + 
         "</br>" + "<b>Rating : </b>" + feature.properties.Rating +
-        "</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
+        "</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Add to route</button>'
         );
     }
   });
@@ -221,7 +210,7 @@ var cafesadd = L.geoJson(cafes, {
 		"<b>Café's name : </b>" + feature.properties.name + 
 		"</br>" +"<b>About : </b> "+ feature.properties.about +
 		"</br>" + "<b>Rating : </b>" + feature.properties.rating +
-		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
+		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Add to route</button>'
 		);
     }
   });

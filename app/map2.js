@@ -1,4 +1,4 @@
-var map = L.map('map').setView([33.977711, -6.865126], 12); 
+var map = L.map('map').setView([34.0255, -6.833], 16); 
 
 new L.basemapsSwitcher([
     {
@@ -34,3 +34,25 @@ new L.basemapsSwitcher([
               if(window.console) window.console.log('exitFullscreen');
           });
   
+var imageUrl = 'app/images/carte1/planmedina.png';
+var errorOverlayUrl = 'https://cdn-icons-png.flaticon.com/512/110/110686.png';
+var altText = 'Image of Newark, N.J. in 1922. Source: The University of Texas at Austin, UT Libraries Map Collection.';
+var latLngBounds = L.latLngBounds([[34.0215, -6.84218], [34.03032, -6.82628]]);
+
+var imageOverlay = L.imageOverlay(imageUrl, latLngBounds, {
+    opacity: 0.8,
+    errorOverlayUrl: errorOverlayUrl,
+    alt: altText,
+    interactive: true
+}).addTo(map);
+
+
+var medina = L.geoJson(medina, {
+  onEachFeature: function (feature, layer) {layer.bindPopup(
+      "</b><br> <center> <img src='app/images/carte1/"+ feature.properties.name + ".png" + "' style='width:200px;height:300x;'></center>" +
+      "<b>Name : </b> " + feature.properties.name );
+      layer.on('mouseover', function() { layer.openPopup(); });
+      layer.on('mouseout', function() { layer.closePopup(); });   
+  }})
+
+medina.addTo(map)
