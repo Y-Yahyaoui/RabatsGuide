@@ -46,8 +46,18 @@ var imageOverlay = L.imageOverlay(imageUrl, latLngBounds, {
     interactive: true
 }).addTo(map);
 
+function style(feature) {
+  return {
+      fillColor: 'white',
+      weight: 2,
+      opacity: 1,
+      color: 'blue',
+      dashArray: '3',
+      fillOpacity: 0
+  };
+}
 
-var medina = L.geoJson(medina, {
+var medina = L.geoJson(medina, {style: style,
   onEachFeature: function (feature, layer) {layer.bindPopup(
       "</b><br> <center> <img src='app/images/carte1/"+ feature.properties.name + ".png" + "' style='width:200px;height:300x;'></center>" +
       "<b>Name : </b> " + feature.properties.name );

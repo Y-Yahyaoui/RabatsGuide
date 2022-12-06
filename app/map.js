@@ -169,21 +169,32 @@ function addtoroute(feature) {
 
 // creating a route based on forms results
 
+var l1 = [[[33.9895242, -6.8484591], [33.977711, -6.865126]], [[34.0174456, -6.8247895], [33.9954722, -6.8473962]]];
+// console.log(l1.random())
+
+function getRandomItem(arr) {
+    // get random index value
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    // get random item
+    const item = arr[randomIndex];
+    return item;
+}
+
 function filt() {
     var value = document.getElementById('Type').value
+    var l1r = getRandomItem(l1);
     if (value == "Cozy") {
-        control.spliceWaypoints(1, 1, [33.9895242, -6.8484591])
+        control.spliceWaypoints(1, 1, l1r[0]);
+        control.spliceWaypoints(2, 1, l1r[1]);
     } else if (value == "Fun") {
         control.spliceWaypoints(1, 1, [33.977711, -6.865126])
-    }
-    
+    }  
 };
 
 // map.on('click', function (e) {
 // 	control.spliceWaypoints(k, 1, [33.9895242, -6.8484591]);
 // 	k+=1;
 // });
-
 
 // ---------------------------------------------------------- popups ----------------------------------------------------------
 
@@ -192,102 +203,102 @@ var restoadd = L.geoJson(restaurants, {
         return L.marker(latlng,{icon: IconResto})                   
     }, 
     onEachFeature: function (feature, layer) {layer.bindPopup(
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:300x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>" +
         "<b>Restaurant : </b> " + feature.properties.name + 
         "</br>" +"<b>About : </b> "+ feature.properties.about + 
         "</br>" + "<b>Rating : </b>" + feature.properties.Rating +
         "</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Add to route</button>'
         );
     }
-  });
+  }).addTo(map);
 
 var cafesadd = L.geoJson(cafes, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconCafe})                    
     }, 
     onEachFeature: function (feature, layer) {layer.bindPopup(
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>" +
 		"<b>Café's name : </b>" + feature.properties.name + 
 		"</br>" +"<b>About : </b> "+ feature.properties.about +
 		"</br>" + "<b>Rating : </b>" + feature.properties.rating +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Add to route</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 var fastfoodadd = L.geoJson(fastfood, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconFastfood})                        
     }, 
     onEachFeature: function (feature, layer) {layer.bindPopup(
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>" +
 		 "<b>Fastfood's name : </b>" + feature.properties.name + 
 		 "</br>" +"<b>About : </b> "+ feature.properties.about +
 		 "</br>" + "<b>Rating : </b>" + feature.properties.rating +
 		 "</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		 );
     }
-  });
+  }).addTo(map);
 
 var museumadd = L.geoJson(musees, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconMuseum})                        
     }, 
     onEachFeature: function (feature, layer) {
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>" +
         layer.bindPopup("<b>Museum's name : </b>" + feature.properties.name +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 var theatreadd = L.geoJson(theatres, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconTheatre})                        
     }, 
     onEachFeature: function (feature, layer) {
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>"+
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>"+
         layer.bindPopup("<b>Theater's name : </b>" + feature.properties.name +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 var foretsadd = L.geoJson(forets, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconForet})                        
     }, 
     onEachFeature: function (feature, layer) {
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:200px;height:100px;'></center>" +
         layer.bindPopup("<b>Forest's name : </b>" + feature.properties.name +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 var parcadd = L.geoJson(parcs, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconParks})                        
     }, 
     onEachFeature: function (feature, layer) {
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>"+
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:50px;height:200x;'></center>"+
         layer.bindPopup("<b>Park's name : </b>" + feature.properties.name +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 var riveradd = L.geoJson(rivieres, {
     pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon: IconRiviere})                        
     }, 
     onEachFeature: function (feature, layer) {
-        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:100px;height:200x;'></center>" +
+        "</b><br> <center> <img src='app/imgpop/"+ feature.properties.name + ".png" + "' style='width:50px;height:800x;'></center>" +
         layer.bindPopup("<b>River's name : </b>" + feature.properties.name +
 		"</br>" + '<button onclick="addtoroute(\''+feature.geometry.coordinates+'\')">Click me</button>'
 		);
     }
-  });
+  }).addTo(map);
 
 // ---------------------------------------------------------- fullscreen ----------------------------------------------------------
 
