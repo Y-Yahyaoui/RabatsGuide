@@ -43,7 +43,7 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var url_to_geotiff_file = "https://lkawtar.github.io/webmapping/DIF.tif";
+var url_to_geotiff_file = "https://elouardinichaimae.github.io/myresume.github.io/Rabat42_modified.tif";
 
 fetch(url_to_geotiff_file)
   .then(response => response.arrayBuffer())
@@ -56,7 +56,7 @@ fetch(url_to_geotiff_file)
           opacity: 0.7,
           // pixelValuesToColorFn: values => values[0] === 42 ? '#ffffff' : '#000000',
           // resolution: 64 // optional parameter for adjusting display resolution
-          // resolution: 64
+          resolution: 256
       });
       console.log(layer1);
       layer1.addTo(map);
