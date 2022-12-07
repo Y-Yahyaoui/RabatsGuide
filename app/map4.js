@@ -56,7 +56,7 @@ fetch(url_to_geotiff_file)
           opacity: 0.7,
           // pixelValuesToColorFn: values => values[0] === 42 ? '#ffffff' : '#000000',
           // resolution: 64 // optional parameter for adjusting display resolution
-          resolution: 256
+          // resolution: 256
       });
       layer1.addTo(map);
       map.fitBounds(layer1.getBounds());

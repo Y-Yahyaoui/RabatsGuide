@@ -118,7 +118,7 @@ L.control.timelineSlider({
 
 L.control.Legend({
             position: "bottomleft",
-            collapsed: false,
+            collapsed: true,
             symbolWidth: 24,
             opacity: 1,
             column: 1,
