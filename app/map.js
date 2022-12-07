@@ -78,11 +78,11 @@ var map = L.map('map', ).setView([33.977711, -6.865126], 14);
 
 new L.basemapsSwitcher([
     {
-      layer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      layer: L.tileLayer('https://api.mapbox.com/styles/v1/nafissa1809/clbcvdaxm002914o0nj4d8kc0/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmFmaXNzYTE4MDkiLCJhIjoiY2xiYTFtZDJkMTBlZjNxcWh1aHdwbnp0aCJ9.OBCk9K8H_5L_JfgvBgT8jQ', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map), //DEFAULT MAP
       icon: 'SwitchBasemap/example/assets/images/img1.PNG',
-      name: 'Open street'
+      name: 'Map box'
     },
     {
       layer: L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'),
@@ -99,7 +99,7 @@ new L.basemapsSwitcher([
 
 var control = L.Routing.control(L.extend(window.lrmConfig, {
 	waypoints: [
-		L.latLng(33.9895242, -6.8484591),
+		// L.latLng(33.9895242, -6.8484591),
 	],
 	createMarker: function (i, waypoints, n) {
 		var startIcon = L.icon({
