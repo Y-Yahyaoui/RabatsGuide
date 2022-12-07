@@ -85,12 +85,12 @@ new L.basemapsSwitcher([
       name: 'Map box'
     },
     {
-      layer: L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'),
+      layer: L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'),
       icon: 'SwitchBasemap/example/assets/images/img2.PNG',
       name: 'Maps'
     },
     {
-      layer: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
+      layer: L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}'),
       icon: 'SwitchBasemap/example/assets/images/sat.PNG',
       name: 'Satellite'
     }], { position: 'topright' }).addTo(map);
@@ -189,9 +189,6 @@ function filt() {
         control.spliceWaypoints(1, 1, l1r[0]);
         control.spliceWaypoints(2, 1, l1r[1]);
     } else if (value == "Adventurous") {
-        control.spliceWaypoints(1, 1, l2r[0]);
-        control.spliceWaypoints(2, 1, l2r[1]);
-    } else if (value == "All type") {
         control.spliceWaypoints(1, 1, l2r[0]);
         control.spliceWaypoints(2, 1, l2r[1]);
     } 
