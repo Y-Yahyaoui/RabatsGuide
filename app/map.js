@@ -169,7 +169,8 @@ function addtoroute(feature) {
 
 // creating a route based on forms results
 
-var l1 = [[[33.9895242, -6.8484591], [33.977711, -6.865126]], [[34.0174456, -6.8247895], [33.9954722, -6.8473962]]];
+var l1 = [[[34.0174456, -6.8247895], [34.025702622550007, -6.81535026864999]], [[34.0150951, -6.8369471], [34.020362700550002, -6.833296220800003]]];
+var l2 = [[[33.9581699, -6.872866], [33.957250571767688, -6.903035451617853]], [[33.9534769, -6.8638351], [33.934781836043456, -6.837200007124939]]];
 // console.log(l1.random())
 
 function getRandomItem(arr) {
@@ -183,12 +184,18 @@ function getRandomItem(arr) {
 function filt() {
     var value = document.getElementById('Type').value
     var l1r = getRandomItem(l1);
+    var l2r = getRandomItem(l2);
     if (value == "Cozy") {
         control.spliceWaypoints(1, 1, l1r[0]);
         control.spliceWaypoints(2, 1, l1r[1]);
-    } else if (value == "Fun") {
-        control.spliceWaypoints(1, 1, [33.977711, -6.865126])
-    }  
+    } else if (value == "Adventurous") {
+        control.spliceWaypoints(1, 1, l2r[0]);
+        control.spliceWaypoints(2, 1, l2r[1]);
+    } else if (value == "All type") {
+        control.spliceWaypoints(1, 1, l2r[0]);
+        control.spliceWaypoints(2, 1, l2r[1]);
+    } 
+     
 };
 
 // map.on('click', function (e) {
